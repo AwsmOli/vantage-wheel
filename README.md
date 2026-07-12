@@ -22,9 +22,13 @@ pio run              # build
 pio run --target upload
 ```
 
+## Design Files
+
+- [CAD model (Onshape)](https://cad.onshape.com/documents/08082415ff2de2ac8e2b91c2/w/0c94ee610cfca7954d29ceab/e/e80c9b103543ff9733494459) — enclosure/mounting, in progress
+
 ## Roadmap
 
-Firmware works; enclosure/mounting design is still to be worked out.
+Firmware works; enclosure/mounting design is in progress in CAD.
 
 ## License
 
