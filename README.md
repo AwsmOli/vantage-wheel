@@ -15,12 +15,29 @@ An earlier prototype explored using the ESP32-S3's USB host mode to read a physi
 - ESP32-S3 (DevKitC-1, 16MB flash)
 - 5 rotary encoders with integrated push-button switches
 
-## Building
+## Building & Flashing
+
+Requires [PlatformIO](https://platformio.org/) (CLI or the VS Code extension). The [ESP32-BLE-Gamepad](https://github.com/lemmingDev/ESP32-BLE-Gamepad) library is pulled automatically via `lib_deps` in `platformio.ini`.
 
 ```bash
-pio run              # build
-pio run --target upload
+pio run                      # build
+pio run --target upload      # flash over USB
+pio device monitor -b 115200 # serial monitor (encoder/BLE debug prints)
 ```
+
+The board target is `esp32S3` (ESP32-S3-DevKitC-1, 16MB flash) — see `platformio.ini`. After flashing, the device advertises as a Bluetooth LE gamepad named "VantageWheel"; pair it like any other Bluetooth device.
+
+### Pin Configuration
+
+| Encoder | VCC | GND | CLK | DT | SW (button) |
+|---|---|---|---|---|---|
+| 1 | 18 | 4 | 7 | 6 | 5 |
+| 2 | 18 | 17 | 10 | 9 | 8 |
+| 3 | 18 | 4 | 2 | 1 | 44 |
+| 4 | 37 | 38 | 48 | 35 | 36 |
+| 5 | 14 | 4 | 11 | 12 | 13 |
+
+Each encoder's VCC/GND pins are driven directly as digital outputs (`pinMode(..., OUTPUT)`) rather than wired to a fixed rail, so an encoder can be powered from whichever nearby GPIOs are convenient. Pins are defined at the top of `src/main.cpp` (`encoder_vcc_pins`, `encoder_gnd_pins`, `encoder_clk_pins`, `encoder_dt_pins`, `encoder_btn_pins`) if they need to change for a different wiring layout.
 
 ## Design Files
 
