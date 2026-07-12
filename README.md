@@ -2,7 +2,7 @@
 
 A DIY sim racing wheel base — working name "Vantage Wheel". An ESP32-S3 reads a set of rotary encoders and emulates a Bluetooth LE HID gamepad, pairing with the [Button Box](https://github.com/AwsmOli/button-box) sim racing button box.
 
-> Status: early idea, not fleshed out yet — prototype firmware exists, but the wheel itself (force feedback, motor/driver, rim) isn't designed yet.
+> Status: prototype firmware works — the encoder/gamepad side is implemented and functional. The wheel itself (force feedback, motor/driver, rim) isn't designed yet.
 
 ## What's here
 
