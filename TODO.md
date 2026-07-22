@@ -1,4 +1,4 @@
 - [ ] Take photos for the website
-- [ ] Write build guide
 - [ ] Update product description
 - [ ] Write BoM (bill of materials)
+- [o] Write build guide
